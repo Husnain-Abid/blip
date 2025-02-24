@@ -30,7 +30,7 @@ export default function PaymentMethod() {
   ];
 
   return (
-    <div className="relative max-w-4xl mx-auto bg-[#1D232C] shadow-[12px_8px_20px_0px_#00000033] rounded-lg md:rounded-3xl px-4 py-5 md:p-8">
+    <div className="relative max-w-4xl mx-auto bg-[#1D232C] shadow-[12px_8px_20px_0px_#00000033] rounded-lg md:rounded-3xl px-4 py-5 md:p-8 z-10">
       {/* Location Details */}
       <div className="flex justify-between mb-[22px] border-b border-gray-600 pb-5">
         <div className="text-sm md:text-xl font-bold">
