@@ -56,18 +56,18 @@ const ChargingStatus = () => {
   return (
     <>
 
-      <div className="hidden md:block max-w-6xl mx-auto bg-[#1D232C] rounded-2xl p-14">
+      <div className="hidden md:block max-w-6xl mx-auto bg-[#1D232C] shadow-[12px_8px_20px_0px_#00000033] rounded-2xl p-14">
         {/* Progress Steps */}
         <div className="flex justify-between items-start mb-16">
 
           {/* Step 1 */}
           <div className={`w-72 text-center ${currentStep === 1 ? "text-white" : "text-white/50"}`}>
             <h2 className="text-xl font-medium mb-2">Charger SARIKA has been activated!</h2>
-            <p className={`${currentStep === 1 ? "text-white/80" : "text-white/50"}`}>Plug in to start charging</p>
+            <p className={`${currentStep === 1 ? "text-white/80" : "text-white/50"} text-lg`}>Plug in to start charging</p>
           </div>
 
           {/* Progress Dashes */}
-          <div className="flex w-12 items-center justify-between mx-4 mt-4">
+          <div className="flex w-10 items-center justify-between mx-4 mt-8">
             {[...Array(3)].map((_, index) => (
               <div
                 key={index}
@@ -79,13 +79,13 @@ const ChargingStatus = () => {
           {/* Step 2 */}
           <div className={`w-72 text-center ${currentStep === 2 ? "text-white" : "text-white/50"}`}>
             <h2 className="text-xl font-medium mb-2">Charging initiated</h2>
-            <p className={`${currentStep === 2 ? "text-white/80" : "text-white/50"}`}>
-              Time remaining: {formatTime(timeRemaining)}
+            <p className={`${currentStep === 2 ? "text-white/80" : "text-white/50"}  text-lg`}>
+              Time remaining: {formatTime(timeRemaining)} minutes
             </p>
           </div>
 
           {/* Progress Dashes */}
-          <div className="flex w-12 items-center justify-between mx-4 mt-4">
+          <div className="flex w-10 items-center justify-between mx-4 mt-8">
             {[...Array(3)].map((_, index) => (
               <div
                 key={index}
@@ -105,11 +105,11 @@ const ChargingStatus = () => {
                 placeholder="Enter email for receipt"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="px-4 py-2 text-sm rounded-lg bg-[#2a2f35] placeholder-gray-400 border border-gray-600 focus:outline-none focus:border-white"
+                className="px-4 py-2 text-sm rounded-lg bg-transparent placeholder-gray-400 border border-gray-600 focus:outline-none focus:border-white"
               />
               <button
                 type="submit"
-                className="px-4 py-2 rounded-lg bg-[#2a2f35] border border-gray-600 hover:bg-[#3a3f45] transition-colors"
+                className="px-4 py-2 rounded-lg bg-[#3B4758] border border-gray-600 hover:bg-[#3a3f45] transition-colors"
               >
                 Submit
               </button>
@@ -124,7 +124,7 @@ const ChargingStatus = () => {
         <div className="flex items-center justify-between border-t border-gray-700 pt-6">
           <div className="flex items-center gap-3">
             <img src={alert} alt="alert" />
-            <p className="text-gray-400/80 text-sm">If you experience any issues in the process, please report here.</p>
+            <p className="text-white/80 text-sm">If you experience any issues in the process, please report here.</p>
           </div>
           <button className="px-6 py-2 rounded-lg text-white/80 border border-gray-600 hover:bg-[#3a3f45] transition-colors">
             Report

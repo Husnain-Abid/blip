@@ -30,7 +30,7 @@ export default function PaymentMethod() {
   ];
 
   return (
-    <div className="relative max-w-4xl mx-auto bg-[#1D232C] rounded-lg md:rounded-3xl px-4 py-5 md:p-8">
+    <div className="relative max-w-4xl mx-auto bg-[#1D232C] shadow-[12px_8px_20px_0px_#00000033] rounded-lg md:rounded-3xl px-4 py-5 md:p-8">
       {/* Location Details */}
       <div className="flex justify-between mb-[22px] border-b border-gray-600 pb-5">
         <div className="text-sm md:text-xl font-bold">
@@ -50,13 +50,15 @@ export default function PaymentMethod() {
           {paymentMethods.map((method, index) => (
             <button
               key={index}
-              className="flex items-center justify-between p-5 border shadow-gray-900 shadow-sm border-white/50 rounded-xl hover:border-[#5ccfe6] transition-colors"
+              className="flex items-center justify-between p-5 border shadow-[12px_8px_20px_0px_#0000004d]  border-white/50 rounded-xl hover:border-[#5ccfe6] transition-colors"
+
               onClick={() => {
                 console.log("Button clicked!"); // Check if this logs
                 if (method.isCardForm) {
                   setShowCardForm(true);
                 }
               }}
+
             >
               <span>{method.name}</span>
               {Array.isArray(method.icon) ? (
@@ -82,7 +84,7 @@ export default function PaymentMethod() {
           {paymentMethods.map((method, index) => (
             <button
               key={index}
-              className="flex items-center justify-between p-5 border shadow-gray-900 shadow-sm border-white/50 rounded-lg hover:border-[#5ccfe6] transition-colors"
+              className="flex items-center justify-between p-5 border shadow-[12px_8px_20px_0px_#0000004D] border-white/50 rounded-lg hover:border-[#5ccfe6] transition-colors"
               onClick={() => {
                 console.log("Button clicked!"); // Check if this logs
                 if (method.isCardForm) {
@@ -98,7 +100,7 @@ export default function PaymentMethod() {
                   ))}
                 </div>
               ) : (
-                <img src={method.icon} alt={method.name} className="w-10"/>
+                <img src={method.icon} alt={method.name} className="w-10" />
               )}
             </button>
           ))}

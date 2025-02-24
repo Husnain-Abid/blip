@@ -1,7 +1,7 @@
 import React from 'react'
 import lock from "../assets/images/lock.png";
 import { useDispatch } from 'react-redux';
-import { setShowCharger, setShowPayment } from '../store/paymentSlice';
+import { setShowCharger, setShowPayment, setStepThree } from '../store/paymentSlice';
 
 export default function SSLNote({ setShowSSLNote }) {
 
@@ -12,6 +12,7 @@ export default function SSLNote({ setShowSSLNote }) {
         dispatch(setShowPayment(false));
         setShowSSLNote(false);
         dispatch(setShowCharger(true));
+        dispatch(setStepThree(true));
     }
 
 
@@ -28,7 +29,7 @@ export default function SSLNote({ setShowSSLNote }) {
             <button
                 onClick={handleClick}
 
-                className="w-full py-4 mt-6 rounded-xl text-center text-black font-bold text-xs md:text-lg bg-gradient-to-r from-[#5DC3FA] to-[#CAE58D] hover:opacity-90 transition-opacity">
+                className="w-full py-3 mt-6 rounded-xl text-center text-black font-bold text-xs md:text-lg bg-gradient-to-r from-[#5DC3FA] to-[#CAE58D] hover:opacity-90 transition-opacity">
                 Continue
             </button>
 
