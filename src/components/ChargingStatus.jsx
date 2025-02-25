@@ -5,7 +5,7 @@ import alert from "../assets/images/warning.png";
 
 const ChargingStatus = () => {
   const [currentStep, setCurrentStep] = useState(1);
-  const [timeRemaining, setTimeRemaining] = useState(120); // 2 minutes in seconds
+  const [timeRemaining, setTimeRemaining] = useState(5); // 2 minutes in seconds
   const [email, setEmail] = useState("");
   const [isCharging, setIsCharging] = useState(false);
 
@@ -56,12 +56,12 @@ const ChargingStatus = () => {
   return (
     <>
 
-      <div className="hidden md:block max-w-6xl mx-auto bg-[#1D232C] shadow-[12px_8px_20px_0px_#00000033] rounded-2xl p-14">
+      <div className="hidden md:block max-w-6xl mx-auto bg-[#1D232C] shadow-[12px_8px_20px_0px_#00000033] rounded-2xl p-14 relative z-10">
         {/* Progress Steps */}
         <div className="flex justify-between items-start mb-16">
 
           {/* Step 1 */}
-          <div className={`w-72 text-center ${currentStep === 1 ? "text-white" : "text-white/50"}`}>
+          <div className={`max-w-52 text-center ${currentStep === 1 ? "text-white" : "text-white/50"}`}>
             <h2 className="text-xl font-medium mb-2">Charger SARIKA has been activated!</h2>
             <p className={`${currentStep === 1 ? "text-white/80" : "text-white/50"} text-lg`}>Plug in to start charging</p>
           </div>
@@ -78,10 +78,10 @@ const ChargingStatus = () => {
 
           {/* Step 2 */}
           <div className={`w-72 text-center ${currentStep === 2 ? "text-white" : "text-white/50"}`}>
-            <h2 className="text-xl font-medium mb-2">Charging initiated</h2>
-            <p className={`${currentStep === 2 ? "text-white/80" : "text-white/50"}  text-lg`}>
+            <h2 className="text-xl font-medium items-center mt-5 ">Charging initiated</h2>
+            {/* <p className={`${currentStep === 2 ? "text-white/80" : "text-white/50"}  text-lg`}>
               Time remaining: {formatTime(timeRemaining)} minutes
-            </p>
+            </p> */}
           </div>
 
           {/* Progress Dashes */}
@@ -96,7 +96,7 @@ const ChargingStatus = () => {
 
           {/* Step 3 */}
           <div className="w-72 text-center">
-            <h2 className={`text-xl font-medium mb-2 ${currentStep === 3 ? "text-white" : "text-white/50"}`}>
+            <h2 className={`text-xl font-medium mb-3 ${currentStep === 3 ? "text-white" : "text-white/50"}`}>
               Charging completed
             </h2>
             <form onSubmit={handleSubmit} className={`flex gap-2 justify-center ${currentStep === 3 ? "text-white/80" : "text-white/50"}`}>
@@ -105,11 +105,11 @@ const ChargingStatus = () => {
                 placeholder="Enter email for receipt"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="px-4 py-2 text-sm rounded-lg bg-transparent placeholder-gray-400 border border-gray-600 focus:outline-none focus:border-white"
+                className="px-4 py-1.5 text-sm rounded-lg bg-transparent placeholder-gray-400 border border-gray-600 focus:outline-none focus:border-white"
               />
               <button
                 type="submit"
-                className="px-4 py-2 rounded-lg bg-[#3B4758] border border-gray-600 hover:bg-[#3a3f45] transition-colors"
+                className="px-4 py-1.5 rounded-lg bg-[#3B4758] border border-gray-600 hover:bg-[#3a3f45] transition-colors"
               >
                 Submit
               </button>
@@ -135,18 +135,18 @@ const ChargingStatus = () => {
 
       {/* responsive  */}
 
-      <div className="block md:hidden max-w-6xl mx-auto bg-[#1D232C] rounded-2xl px-4 pt-11 pb-6 animate-fadeIn">
+      <div className="block md:hidden max-w-6xl mx-auto bg-[#1D232C] rounded-2xl px-4 pt-11 pb-6 animate-fadeIn relative z-10">
         {/* Progress Steps */}
-        <div className="flex justify-between flex-col items-start mb-20">
+        <div className="flex justify-between flex-col items-start mb-16">
 
           {/* Step 1 */}
           <div className={` mx-auto text-center ${currentStep === 1 ? "text-white" : "text-white/50"}`}>
-            <h2 className="text-xl font-medium mb-2">Charger SARIKA has been activated!</h2>
-            <p className={`${currentStep === 1 ? "text-white/80" : "text-white/50"}`}>Plug in to start charging</p>
+            <h2 className="text-base font-medium mb-1.5">Charger SARIKA has been activated!</h2>
+            <p className={`${currentStep === 1 ? "text-white/80 " : "text-white/50"} text-xs`}>Plug in your vehicle to start charging</p>
           </div>
 
           {/* Progress Dashes (Vertical) */}
-          <div className="flex flex-col h-10 items-center justify-between mx-auto my-4">
+          <div className="flex flex-col h-6 items-center justify-between mx-auto my-4">
             {[...Array(3)].map((_, index) => (
               <div
                 key={index}
@@ -157,15 +157,15 @@ const ChargingStatus = () => {
 
           {/* Step 2 */}
           <div className={`mx-auto text-center ${currentStep === 2 ? "text-white" : "text-white/50"}`}>
-            <h2 className="text-xl font-medium mb-2">Charging initiated</h2>
-            <p className={`${currentStep === 2 ? "text-white/80" : "text-white/50"}`}>
+            <h2 className="text-base font-medium mb-2">Charging initiated</h2>
+            {/* <p className={`${currentStep === 2 ? "text-white/80" : "text-white/50"}`}>
               Time remaining: {formatTime(timeRemaining)}
-            </p>
+            </p> */}
           </div>
 
 
           {/* Progress Dashes (Vertical) */}
-          <div className="flex flex-col h-10 items-center justify-between mx-auto my-4">
+          <div className="flex flex-col h-6 items-center justify-between mx-auto my-4">
             {[...Array(3)].map((_, index) => (
               <div
                 key={index}
@@ -176,20 +176,20 @@ const ChargingStatus = () => {
 
           {/* Step 3 */}
           <div className="mx-auto text-center">
-            <h2 className={`text-xl font-medium mb-2 ${currentStep === 3 ? "text-white" : "text-white/50"}`}>
+            <h2 className={`text-base font-medium mb-2.5 ${currentStep === 3 ? "text-white" : "text-white/50"}`}>
               Charging completed
             </h2>
-            <form onSubmit={handleSubmit} className={`flex gap-2  justify-center ${currentStep === 3 ? "text-white/80" : "text-white/50"}`}>
+            <form onSubmit={handleSubmit} className={`flex gap-2   justify-center ${currentStep === 3 ? "text-white/80" : "text-white/50"}`}>
               <input
                 type="email"
                 placeholder="Enter email for receipt"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="px-4 py-2 text-xs rounded-lg w-56 bg-[#2a2f35] placeholder-gray-400 border border-gray-600 focus:outline-none focus:border-white"
+                className="px-4 py-1.5 text-[10px] rounded-lg w-44 bg-transparent placeholder-white/50 border border-gray-600 focus:outline-none focus:border-white"
               />
               <button
                 type="submit"
-                className="px-4 py-2 text-xs rounded-lg bg-[#2a2f35] border border-gray-600 hover:bg-[#3a3f45] transition-colors"
+                className="px-4 py-1.5 text-xs rounded-lg text-white/50 bg-[#3B4758] border border-gray-600 hover:bg-[#3a3f45] transition-colors"
               >
                 Submit
               </button>
@@ -201,12 +201,12 @@ const ChargingStatus = () => {
 
 
         {/* Warning/Report Section */}
-        <div className="flex items-center justify-between border-t border-gray-700 pt-6">
+        <div className="flex items-center justify-between gap-3 border-t border-gray-700 pt-6">
           <div className="flex items-center gap-3">
             <img src={alert} alt="alert" />
-            <p className="text-gray-400/80 text-sm">If you experience any issues in the process, please report here.</p>
+            <p className="text-gray-400/80 text-xs">If you experience any issues in the process, please report here.</p>
           </div>
-          <button className="px-6 py-2 rounded-lg text-xs text-white/80 border border-gray-600 hover:bg-[#3a3f45] transition-colors">
+          <button className="px-4 py-1.5 rounded-lg text-xs text-white/80 border shadow-[12px 8px 10px 0px #0000004D]   border-gray-600 hover:bg-[#3a3f45] transition-colors">
             Report
           </button>
         </div>

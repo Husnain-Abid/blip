@@ -7,6 +7,8 @@ const initialState = {
   stepTwo: false,
   stepThree: false,
 
+  paymentDetail: false,
+
 };
 
 const paymentSlice = createSlice({
@@ -25,9 +27,12 @@ const paymentSlice = createSlice({
     setStepThree: (state, action) => {
       state.stepThree = action.payload;
     },
+    setPaymentDetail: (state, action) => {
+      state.paymentDetail = action.payload;
+    },
 
   },
 });
 
-export const { setShowPayment, setShowCharger, setStepTwo, setStepThree } = paymentSlice.actions;
+export const { setShowPayment, setShowCharger, setStepTwo, setStepThree, setPaymentDetail } = paymentSlice.actions;
 export default paymentSlice.reducer;

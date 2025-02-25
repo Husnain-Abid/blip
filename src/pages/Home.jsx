@@ -43,6 +43,7 @@ const Home = () => {
 
   // Handle location access
   const handleAllowLocation = () => {
+    dispatch(setStepTwo(true)); // Set Two  
     setShowLocationPopup(false);
     dispatch(setShowPayment(true)); // Show Payment component
   };
@@ -52,27 +53,27 @@ const Home = () => {
   };
 
   return (
-    <div className="min-h-screen font-satoshi bg-[#161B21] text-white p-4 relative ">
+    <div className="min-h-screen font-satoshi bg-[#161B21] text-white p-6 relative ">
       {/* Logo */}
       <div className="flex justify-center">
-        <img src={logo} alt="BLIP Logo" className="w-32 md:w-40 mt-12" />
+        <img src={logo} alt="BLIP Logo" className="w-28 md:w-40 mt-12" />
       </div>
 
       {/* Title */}
-      <h1 className="text-center text-xl md:text-[28px] font-medium mb-[50px]">
+      <h1 className="text-center text-base md:text-[28px] font-medium mb-[50px]">
         Start Charging in 3 Easy Steps
       </h1>
 
       {/* Progress Steps */}
-      <div className="flex justify-center gap-7 mb-12">
+      <div className="flex justify-center gap-2 md:gap-7 mb-12">
         {progressSteps.map((step, index) => (
           <div key={index} className="flex flex-col font-medium">
             <div
-              className="h-1.5 mb-4 w-[100px] md:w-[186px]"
+              className="h-1 mb-4 w-[100px] md:w-[186px]"
               style={{ backgroundColor: step.color }}
             ></div>
             <p className="text-[10px] md:text-base">{step.step}</p>
-            <p className="text-sm md:text-xl">{step.title}</p>
+            <p className="text-xs md:text-xl">{step.title}</p>
           </div>
         ))}
       </div>
@@ -85,7 +86,7 @@ const Home = () => {
       ) : (
         <div className={`${showLocationPopup ? "hidden" : "block"} max-w-4xl mx-auto bg-[#1D232C] rounded-[14px] p-10 md:p-14 shadow-[12px_8px_20px_0px_#00000033]`}>
           <div className="flex flex-col items-center text-center border-gray-600">
-            <p className="font-medium text-lg md:text-[22px] mb-6">
+            <p className="font-medium text-base md:text-[22px] mb-5 md:mb-6">
               Start charging session now
             </p>
 
@@ -102,36 +103,38 @@ const Home = () => {
 
             {/* Mobile Button (Triggers Location Popup) */}
             <button
-              className="flex md:hidden bg-[#3B4758] py-3.5 px-6 rounded-[10px] text-xs items-center gap-1.5"
+              className="flex md:hidden bg-[#3B4758] border border-white/20 py-3.5 px-5 rounded-[10px] text-xs items-center gap-1.5"
               onClick={() => setShowLocationPopup(true)}
             >
-              <img src={btn} alt="btn" />
+              <img src={btn} alt="btn" className="w-5" />
               I’m next to a charger
             </button>
+
+
           </div>
         </div>
       )}
 
       {/* Location Permission Popup */}
       {showLocationPopup && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black/50 animate-fadeIn">
+        <div className="fixed inset-0 flex items-center justify-center bg-black/50 animate-fadeIn px-5">
           <div className="bg-[#1D232C]  py-6 rounded-[20px] text-white max-w-[917px] text-center">
             {/* Popup Header */}
             <div className="px-16 ">
-              <h2 className="text-lg font-medium mb-4">
+              <h2 className="text-sm font-medium mb-4">
                 “Blip” would like to access your <br /> current location.
               </h2>
-              <p className="text-sm mb-4 text-white/50">https://blipcharge.com</p>
+              <p className="text-xs mb-4 text-white/50">https://blipcharge.com</p>
             </div>
 
             {/* Divider Line */}
-            <div className="border-t border-gray-600 my-4"></div>
+            <div className="border-t border-gray-600 my-2"></div>
 
             {/* Buttons */}
             <div className="flex flex-col space-y-2">
 
               <button
-                className="text-[#0391FF] px-4 py-2 rounded-md w-full"
+                className="text-[#0391FF] text-sm  px-4 py-1 rounded-md w-full"
                 onClick={handleAllowLocation}
               >
                 Allow
@@ -140,7 +143,7 @@ const Home = () => {
               <div className="border-t border-gray-600"></div>
 
               <button
-                className="text-[#0391FF] px-4 py-2 rounded-md w-full"
+                className="text-[#0391FF] text-sm px-4 py-1 rounded-md w-full"
                 onClick={handleDenyLocation}
               >
                 Don't Allow
@@ -155,11 +158,13 @@ const Home = () => {
 
       {/* Footer */}
 
-      <div className="w-full absolute bottom-5 left-1/2 transform -translate-x-1/2 py-4 z-0">
+      <div className="w-full absolute bottom-5 left-1/2 transform -translate-x-1/2 px-8 md:py-4 ">
 
-        <div className="max-w-[124px] mx-auto border-t border-white/30 pt-6 "> </div>
 
-        <p className="text-sm text-center text-white/60" > Copyright @ 2025. All Rights Reserved. </p>
+        <div className="max-w-full  md:max-w-[124px] mx-auto border-t border-white/20 md:border-white/30 pt-2 md:pt-6 "> </div>
+
+        <p className="text-xs md:text-sm text-center text-white/60" > Copyright @ 2025. All Rights Reserved. </p>
+
 
       </div>
 
