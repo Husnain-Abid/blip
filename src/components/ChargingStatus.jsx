@@ -2,8 +2,12 @@
 
 import { useState, useEffect } from "react";
 import alert from "../assets/images/warning.png";
+import { useNavigate } from "react-router-dom";
 
 const ChargingStatus = () => {
+
+const navigation = useNavigate();
+
   const [currentStep, setCurrentStep] = useState(1);
   const [timeRemaining, setTimeRemaining] = useState(5); // 2 minutes in seconds
   const [email, setEmail] = useState("");
@@ -56,9 +60,9 @@ const ChargingStatus = () => {
   return (
     <>
 
-      <div className="hidden md:block max-w-6xl mx-auto bg-[#1D232C] shadow-[12px_8px_20px_0px_#00000033] rounded-2xl p-14 relative z-10">
+      <div className="hidden md:block max-w-6xl mx-auto bg-[#1D232C] shadow-[12px_8px_20px_0px_#00000033] rounded-2xl px-14 pt-10 pb-8 relative z-10">
         {/* Progress Steps */}
-        <div className="flex justify-between items-start mb-16">
+        <div className="flex justify-around items-start mb-10">
 
           {/* Step 1 */}
           <div className={`max-w-52 text-center ${currentStep === 1 ? "text-white" : "text-white/50"}`}>
@@ -77,7 +81,7 @@ const ChargingStatus = () => {
           </div>
 
           {/* Step 2 */}
-          <div className={`w-72 text-center ${currentStep === 2 ? "text-white" : "text-white/50"}`}>
+          <div className={`max-w-42 text-center ${currentStep === 2 ? "text-white" : "text-white/50"}`}>
             <h2 className="text-xl font-medium items-center mt-5 ">Charging initiated</h2>
             {/* <p className={`${currentStep === 2 ? "text-white/80" : "text-white/50"}  text-lg`}>
               Time remaining: {formatTime(timeRemaining)} minutes
@@ -102,7 +106,7 @@ const ChargingStatus = () => {
             <form onSubmit={handleSubmit} className={`flex gap-2 justify-center ${currentStep === 3 ? "text-white/80" : "text-white/50"}`}>
               <input
                 type="email"
-                placeholder="Enter email for receipt"
+                placeholder="Enter tel for receipt"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="px-4 py-1.5 text-sm rounded-lg bg-transparent placeholder-gray-400 border border-gray-600 focus:outline-none focus:border-white"
@@ -110,7 +114,10 @@ const ChargingStatus = () => {
               <button
                 type="submit"
                 className="px-4 py-1.5 rounded-lg bg-[#3B4758] border border-gray-600 hover:bg-[#3a3f45] transition-colors"
-              >
+                onClick={()=>navigation("/error")}
+
+             
+             >
                 Submit
               </button>
             </form>
@@ -146,18 +153,18 @@ const ChargingStatus = () => {
           </div>
 
           {/* Progress Dashes (Vertical) */}
-          <div className="flex flex-col h-6 items-center justify-between mx-auto my-4">
+          <div className="flex flex-col h-6 items-center justify-between mx-auto my-3">
             {[...Array(3)].map((_, index) => (
               <div
                 key={index}
-                className="w-[2px] h-1/5 bg-gray-600 transition-all duration-500"
+                className="w-[2px] h-1/4 bg-gray-600 transition-all duration-500"
               />
             ))}
           </div>
 
           {/* Step 2 */}
           <div className={`mx-auto text-center ${currentStep === 2 ? "text-white" : "text-white/50"}`}>
-            <h2 className="text-base font-medium mb-2">Charging initiated</h2>
+            <h2 className="text-base font-medium ">Charging initiated</h2>
             {/* <p className={`${currentStep === 2 ? "text-white/80" : "text-white/50"}`}>
               Time remaining: {formatTime(timeRemaining)}
             </p> */}
@@ -165,11 +172,11 @@ const ChargingStatus = () => {
 
 
           {/* Progress Dashes (Vertical) */}
-          <div className="flex flex-col h-6 items-center justify-between mx-auto my-4">
+          <div className="flex flex-col h-6 items-center justify-between mx-auto my-3">
             {[...Array(3)].map((_, index) => (
               <div
                 key={index}
-                className="w-[2px] h-1/5 bg-gray-600 transition-all duration-500"
+                className="w-[2px] h-1/4 bg-gray-600 transition-all duration-500"
               />
             ))}
           </div>
@@ -182,7 +189,7 @@ const ChargingStatus = () => {
             <form onSubmit={handleSubmit} className={`flex gap-2   justify-center ${currentStep === 3 ? "text-white/80" : "text-white/50"}`}>
               <input
                 type="email"
-                placeholder="Enter email for receipt"
+                placeholder="Enter tel for receipt"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="px-4 py-1.5 text-[10px] rounded-lg w-44 bg-transparent placeholder-white/50 border border-gray-600 focus:outline-none focus:border-white"
@@ -190,6 +197,7 @@ const ChargingStatus = () => {
               <button
                 type="submit"
                 className="px-4 py-1.5 text-xs rounded-lg text-white/50 bg-[#3B4758] border border-gray-600 hover:bg-[#3a3f45] transition-colors"
+                onClick={()=>navigation("/error")}
               >
                 Submit
               </button>

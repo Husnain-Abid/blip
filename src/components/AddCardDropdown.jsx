@@ -70,7 +70,7 @@ export default function AddCardDropdown({ showCardForm, setShowCardForm }) {
               </button>
 
               <button
-                className="w-1/2 py-3 bg-gradient-to-r from-[#5DC3FA] to-[#CAE58D] rounded-lg text-black text-sm font-medium hover:opacity-90 transition-opacity"
+                className="w-1/2 py-3 bg-gradient-to-r from-[#5DC3FA] to-[#CAE58D] rounded-lg text-black text-sm font-bold hover:opacity-90 transition-opacity"
                 onClick={handleSaveCard}
               >
                 Save
@@ -81,33 +81,35 @@ export default function AddCardDropdown({ showCardForm, setShowCardForm }) {
 
           {/* mobile responsive  */}
 
-          <div className="block md:hidden bg-[#1D232C] p-5 rounded-b-lg shadow-[12px_8px_20px_0px_#0000004D] border border-white/60  animate-fadeIn">
+          <div className="block md:hidden bg-[#1D232C] p-5 rounded-b-lg shadow-[12px_8px_20px_0px_#0000004D] border border-[#5DC3FA]  animate-fadeIn"
+          
+          >
 
             <p className="text-sm font-medium mb-3">Enter your card details here</p>
 
-            <div className="flex gap-4 text-xs">
+            <div className="flex gap-3 text-xs">
               <input
                 type="text"
                 placeholder="Name on card"
-                className="w-2/3 px-3 py-2 border shadow-[10px_6px_15px_rgba(0,0,0,0.2)]  rounded-lg bg-[#3B4758] text-white  border-white/40"
+                className="w-2/3 px-3 py-2 border shadow-[10px_6px_15px_rgba(0,0,0,0.2)]  rounded-lg bg-[#3B4758] text-white  border-white/30"
               />
               <input
                 type="text"
                 placeholder="Exp"
-                className="w-1/3 px-3 py-2  border shadow-[10px_6px_15px_rgba(0,0,0,0.2)]  rounded-lg bg-[#3B4758] text-white  border-white/40 focus:outline-none"
+                className="w-1/3 px-3 py-2  border shadow-[10px_6px_15px_rgba(0,0,0,0.2)]  rounded-lg bg-[#3B4758] text-white  border-white/30 focus:outline-none"
               />
             </div>
 
-            <div className="flex gap-4 text-xs mt-4">
+            <div className="flex gap-3 text-xs mt-4">
               <input
                 type="text"
                 placeholder="Card number"
-                className="w-2/3 px-3 py-2 border shadow-[10px_6px_15px_rgba(0,0,0,0.2)]  rounded-lg bg-[#3B4758] text-white  border-white/40"
+                className="w-2/3 px-3 py-2 border shadow-[10px_6px_15px_rgba(0,0,0,0.2)]  rounded-lg bg-[#3B4758] text-white  border-white/30"
               />
               <input
                 type="text"
                 placeholder="CVV"
-                className="w-1/3 px-3 py-2 border shadow-[10px_6px_15px_rgba(0,0,0,0.2)]  rounded-lg bg-[#3B4758] text-white  border-white/40"
+                className="w-1/3 px-3 py-2 border shadow-[10px_6px_15px_rgba(0,0,0,0.2)]  rounded-lg bg-[#3B4758] text-white  border-white/30"
               />
             </div>
 
@@ -121,7 +123,7 @@ export default function AddCardDropdown({ showCardForm, setShowCardForm }) {
               </button>
 
               <button
-                className="w-1/2 py-3 bg-gradient-to-r from-[#5DC3FA] to-[#CAE58D] rounded-lg text-black text-xs font-bold hover:opacity-90 transition-opacity"
+                className="w-1/2 py-3 font-bold bg-gradient-to-r from-[#5DC3FA] to-[#CAE58D] rounded-lg text-black text-xs  hover:opacity-90 transition-opacity"
                 onClick={handleSaveCard}
               >
                 Save
